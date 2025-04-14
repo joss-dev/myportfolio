@@ -6,6 +6,8 @@ import dotenv from 'dotenv';
 
 import react from '@astrojs/react';
 
+import vercel from '@astrojs/vercel/serverless';
+
 dotenv.config();
 
 // https://astro.build/config
@@ -13,6 +15,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  output: 'static',
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: { enabled: false } 
+  }),
   integrations: [react()]
 });
