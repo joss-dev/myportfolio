@@ -38,6 +38,7 @@ const {
       :src="images[current]"
       @click="modalImage = images[current]; showModal = true"
       alt={title}
+      loading="lazy"
       class="w-full h-48 object-cover rounded-md cursor-pointer transition duration-300 hover:opacity-80"
     />
 
