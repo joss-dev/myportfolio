@@ -1,10 +1,140 @@
 ---
-/* Project Card Component */
-const { title, description, link } = Astro.props;
+interface Props {
+  title: string;
+  description: string;
+  images?: string[];
+  repo: string;
+  demo: string;
+  details: string;
+  tech?: string[];
+}
+
+const {
+  title,
+  description,
+  images = [],
+  repo,
+  demo,
+  details,
+  tech = [],
+} = Astro.props;
 ---
 
-<div class="bg-white shadow-md rounded-lg p-6">
-  <h3 class="text-xl font-semibold text-gray-800">{title}</h3>
-  <p class="text-gray-600 mt-2">{description}</p>
-  <a href={link} class="text-teal-500 hover:underline mt-4 block">Ver Proyecto</a>
+<div
+  x-data="{
+    images: JSON.parse($el.getAttribute('data-images')),
+    current: 0,
+    showModal: false,
+    modalImage: '',
+    showTextModal: false
+  }"
+  x-ref="projectCard"
+  data-images={JSON.stringify(images)}
+  class="flex flex-col justify-between rounded-xl p-4 shadow-md bg-gray-800 text-white space-y-4 h-full relative"
+>
+  <!-- Carrusel de imágenes -->
+  <div class="relative overflow-hidden rounded-lg">
+    <img
+      :src="images[current]"
+      @click="modalImage = images[current]; showModal = true"
+      alt={title}
+      class="w-full h-48 object-cover rounded-md cursor-pointer transition duration-300 hover:opacity-80"
+    />
+
+    <!-- Botones de navegación -->
+    <button
+      @click="current = (current - 1 + images.length) % images.length"
+      class="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full text-white hover:bg-opacity-75"
+    >
+      ‹
+    </button>
+    <button
+      @click="current = (current + 1) % images.length"
+      class="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full text-white hover:bg-opacity-75"
+    >
+      ›
+    </button>
+  </div>
+
+  <!-- Modal de imagen ampliada -->
+  <div
+    x-show="showModal"
+    @click.outside="showModal = false"
+    class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+  >
+    <img
+      :src="modalImage"
+      class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+    />
+    <button
+      @click="showModal = false"
+      class="absolute top-4 right-4 text-white text-2xl font-bold"
+      >&times;</button
+    >
+  </div>
+
+  <!-- Modal de texto "Ver más" -->
+  <div
+    x-show="showTextModal"
+    x-transition
+    @click.outside="showTextModal = false"
+    class="fixed inset-0 bg-transparent flex items-center justify-center z-50 px-4"
+  >
+    <div
+      class="bg-gray-900 text-gray-100 rounded-lg shadow-xl max-w-2xl w-full p-6 relative"
+    >
+      <h2 class="text-xl font-bold mb-4">Detalles del proyecto</h2>
+      <p class="text-gray-300 whitespace-pre-line">{details}</p>
+      <button
+        @click="showTextModal = false"
+        class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-cyan-400"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
+
+  <!-- Título y descripción -->
+  <div>
+    <h3 class="text-xl font-bold">{title}</h3>
+    <p class="text-gray-400 mt-2">{description}</p>
+  </div>
+
+  <!-- Tecnologías usadas -->
+  <div class="flex flex-wrap gap-2 text-sm mt-2">
+    {
+      tech.map((lang) => (
+        <span class="bg-gray-700 px-2 py-1 rounded text-cyan-400 font-medium">
+          {lang}
+        </span>
+      ))
+    }
+  </div>
+
+  <!-- Botones de acción -->
+  <div class="mt-4">
+    <div class="flex justify-around text-xl">
+      <a
+        href={repo}
+        target="_blank"
+        title="Código fuente"
+        class="hover:text-cyan-400"
+      >
+        <i class="fab fa-github"></i>
+      </a>
+      <a
+        href={demo}
+        title="Ver demo"
+        class="hover:text-cyan-400"
+      >
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+      <button
+        @click="showTextModal = true"
+        class="hover:text-cyan-400 text-base font-semibold"
+      >
+        Ver más
+      </button>
+    </div>
+  </div>
 </div>

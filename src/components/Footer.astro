@@ -1,10 +1,12 @@
 ---
-/* Footer Component */
+const {
+  textColor = "text-gray-400",
+  background = "bg-gray-900",
+  year = new Date().getFullYear(),
+  brand = "Joss.dev"
+} = Astro.props;
 ---
 
-<footer class="bg-gray-900 text-white py-6 mt-12">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
-    </div>
+<footer class={`${background} ${textColor}  py-6 mt-12 text-center`}>
+  <p>&copy; {year} {brand}. Todos los derechos reservados.</p>
 </footer>
-  

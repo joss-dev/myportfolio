@@ -1,14 +1,19 @@
 ---
-/* Header Component */
+const {
+  brand = "Joss.dev",
+  textColor = "text-white",
+  hoverColor = "hover:text-cyan-400",
+  background = "bg-gray-900"
+} = Astro.props;
 ---
 
-<nav class="bg-gray-900 text-white p-4 fixed w-full top-0 left-0 z-10">
+<nav class={`${background} ${textColor} p-4 fixed w-full top-0 left-0 z-10 shadow-sm`}>
   <div class="container mx-auto flex justify-between items-center">
-    <a href="#about" class="text-2xl font-bold">Mi Portafolio</a>
-    <ul class="flex space-x-6">
-      <li><a href="#about" class="hover:text-teal-400">Sobre mí</a></li>
-      <li><a href="#projects" class="hover:text-teal-400">Proyectos</a></li>
-      <li><a href="#contact" class="hover:text-teal-400">Contacto</a></li>
+    <a href="#" class="text-2xl font-bold">{brand}</a>
+    <ul class="flex space-x-6 text-sm">
+      <li><a href="#about" class={`${hoverColor} transition`}>Sobre mí</a></li>
+      <li><a href="#projects" class={`${hoverColor} transition`}>Proyectos</a></li>
+      <li><a href="#contact" class={`${hoverColor} transition`}>Contacto</a></li>
     </ul>
   </div>
 </nav>

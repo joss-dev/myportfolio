@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 ---
@@ -8,27 +9,18 @@ import Footer from '../components/Footer.astro'
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 		<meta name="generator" content={Astro.generator} />
+		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 		<title>Joss dev</title>
-		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet" />
 	</head>
-	<body class="bg-gray-50 text-gray-800">
-
+	<body class="min-h-screen bg-gradient-full text-white font-sans">
 		<Header />
 		<main class="mt-24">
 		  <slot /> 
 		</main>
 		<Footer />
-	
 	  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

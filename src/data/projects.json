@@ -1,0 +1,39 @@
+[
+    {
+      "title": "Plataforma de adopción de mascotas",
+      "description": "Una web app hecha con tecnologías modernas.",
+      "images": [
+        "/img/doggii/doggii1.webp",
+        "/img/doggii/doggii2.webp"
+      ],
+      "repo": "https://github.com/joss-dev/Plataforma-Adopcion-De-Mascotas",
+      "demo": "#projects",
+      "details": "Este proyecto fue realizado con Astro, Tailwind y otras tecnologías.",
+      "tech": ["ReactJS", "Node.js", "Express.js", "MongoDB"]
+    },
+    {
+      "title": "Centro de historial Medico",
+      "description": "Toda la información médica en un solo lugar.",
+      "images": [
+        "/img/medlink/medlink1.webp",
+        "/img/medlink/medlink2.webp"
+      ],
+      "repo": "https://github.com/joss-dev/MedLink-Servidor",
+      "demo": "#projects",
+      "details": "Proyecto de ejemplo con React y Node.js.",
+      "tech": ["ReactJS", "Node.js", "Express.js", "MongoDB"]
+    },
+    {
+      "title": "Ecommerce de ropa",
+      "description": "Tienda online de ropa y accesorios.",
+      "images": [
+        "/img/ecommerce/ecommerce2.webp",
+        "/img/ecommerce/ecommerce1.webp"
+      ],
+      "repo": "https://github.com/joss-dev/Ecommerce",
+      "demo": "#projects",
+      "details": "Proyecto de ejemplo con React y Node.js.",
+      "tech":["Next.Js", "Node.js", "Express.js", "MongoDB"]
+    }
+]
+  
