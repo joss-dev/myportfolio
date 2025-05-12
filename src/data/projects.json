@@ -8,7 +8,7 @@
       ],
       "repo": "https://github.com/joss-dev/Plataforma-Adopcion-De-Mascotas",
       "demo": "#projects",
-      "details": "Este proyecto fue realizado con Astro, Tailwind y otras tecnologías.",
+      "details": "Doggii es la plataforma que revoluciona la adopción de mascotas, conectando refugios y adoptantes de manera simple, ágil y segura. Nuestra misión es facilitar el encuentro entre animales que buscan un hogar y personas dispuestas a brindarles amor y cuidado. Desarrollada con Next.js, Node.js y MongoDB, Doggii ofrece una experiencia intuitiva y eficiente para todos los usuarios. Únete a nosotros en esta noble causa y ayuda a cambiar vidas.",
       "tech": ["ReactJS", "Node.js", "Express.js", "MongoDB"]
     },
     {
@@ -20,7 +20,7 @@
       ],
       "repo": "https://github.com/joss-dev/MedLink-Servidor",
       "demo": "#projects",
-      "details": "Proyecto de ejemplo con React y Node.js.",
+      "details": "Desarrollo de Centro de historial médico Medlink. Utilizando las tecnologias, Typescript , Nextjs ,Nodejs, Express, Swagger, MongoDB.",
       "tech": ["ReactJS", "Node.js", "Express.js", "MongoDB"]
     },
     {
@@ -32,7 +32,7 @@
       ],
       "repo": "https://github.com/joss-dev/Ecommerce",
       "demo": "#projects",
-      "details": "Proyecto de ejemplo con React y Node.js.",
+      "details": "Proyecto del curso de fullstack con Next.js y Node.js.",
       "tech":["Next.Js", "Node.js", "Express.js", "MongoDB"]
     }
 ]
