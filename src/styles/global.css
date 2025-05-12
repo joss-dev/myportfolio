@@ -15,7 +15,7 @@ body {
 
 .bg-gradient-full {
     background-image: linear-gradient(to bottom, #111827, #1f2937, #000000);
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: cover;
 }

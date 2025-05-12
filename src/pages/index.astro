@@ -1,32 +1,18 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
 import AboutMe from "../components/AboutMe.astro";
 import ContactForm from '../components/ContactForm.tsx';
-import projects from '../data/projects.json';
 import Skills from "../components/Skills.astro";
 import Education from "../components/Education.astro";
 import Experiencie from "../components/Experiencie.astro";
+import Project from "../components/Project.astro";
 ---
 
 <MainLayout>
   <AboutMe />
-  <!-- Sección Proyectos -->
-<section id="projects" class="py-8 scroll-mt-24">
-	<div class="container mx-auto text-center px-4">
-	  <h2 class="text-4xl font-semibold mb-8">Mis Proyectos</h2>
-	  
-	  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-		{projects.map(project => (
-		  <div class="h-full">
-			<ProjectCard {...project} />
-		  </div>
-		))}
-	  </div>
-	</div>
-  </section>
+  <Project />
   <Skills />
   <Experiencie />
   <Education />
-  <ContactForm title="Contacto" client:load />
+  <ContactForm title="Contacto" client:idle />
 </MainLayout>
