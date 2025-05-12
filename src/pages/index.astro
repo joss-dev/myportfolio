@@ -4,6 +4,7 @@ import ProjectCard from "../components/ProjectCard.astro";
 import AboutMe from "../components/AboutMe.astro";
 import ContactForm from '../components/ContactForm.tsx';
 import projects from '../data/projects.json';
+import Skills from "../components/Skills.astro";
 ---
 
 <MainLayout>
@@ -22,6 +23,6 @@ import projects from '../data/projects.json';
 	  </div>
 	</div>
   </section>
-  
+  <Skills />
   <ContactForm title="Contacto" client:load />
 </MainLayout>
