@@ -1,0 +1,56 @@
+---
+const experience = [
+  {
+    company: "Pacha Go",
+    position: "Backend Developer",
+    type: "Contrato de formación",
+    date: "abr. 2025 - actualidad · 2 meses",
+    location: "Italia · En remoto",
+    logo: "/img/experiencie/Pachago.jpeg",
+    responsibilities: [
+      "Formación práctica en desarrollo de software con Node.js, MongoDB, JavaScript y TypeScript.",
+      "Trabajo bajo metodologías ágiles utilizando Jira.",
+      "Participación activa en todo el ciclo de vida del proyecto."
+    ]
+  },
+  {
+    company: "No Country Simulation",
+    position: "Backend Developer",
+    type: "Contrato de formación",
+    date: "feb. 2025 - actualidad · 5 meses",
+    location: "Argentina · En remoto",
+    logo: "/img/experiencie/NocountrySimulation.jpeg",
+    responsibilities: [
+      "Backend Developer en No Country Simulation, trabajando con TypeScript, Node.js, Express y MongoDB. Desarrollo y mantenimiento de APIs REST, gestión de bases de datos y colaboración con equipos multidisciplinarios para entregar soluciones escalables y eficientes."
+    ]
+  }
+];
+---
+
+<section id="experience" class="py-24 px-4 max-w-4xl mx-auto">
+  <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500 mb-12 text-center">
+    Experiencia Laboral
+  </h2>
+
+  {experience.map((job) => (
+    <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 md:flex gap-6 mb-8 transition-all hover:shadow-cyan-500/30">
+      <div class="flex-shrink-0 flex justify-center md:justify-start items-center mb-4 md:mb-0">
+        <img src={job.logo} alt={`Logo de ${job.company}`} class="w-20 h-20 object-contain rounded-full border border-gray-300 dark:border-gray-700 p-2" />
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+          {job.position}
+          <span class="text-sm text-gray-500 dark:text-gray-400 block">{job.company} · {job.type}</span>
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">{job.date} · {job.location}</p>
+
+        <ul class="list-disc mt-4 ml-5 text-gray-700 dark:text-gray-300 space-y-2">
+          {job.responsibilities.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
+</section>

@@ -5,6 +5,8 @@ import AboutMe from "../components/AboutMe.astro";
 import ContactForm from '../components/ContactForm.tsx';
 import projects from '../data/projects.json';
 import Skills from "../components/Skills.astro";
+import Education from "../components/Education.astro";
+import Experiencie from "../components/Experiencie.astro";
 ---
 
 <MainLayout>
@@ -24,5 +26,7 @@ import Skills from "../components/Skills.astro";
 	</div>
   </section>
   <Skills />
+  <Experiencie />
+  <Education />
   <ContactForm title="Contacto" client:load />
 </MainLayout>
