@@ -65,6 +65,8 @@ export default function ContactForm({ title = "Contacto" }) {
             type="text"
             id="name"
             name="name"
+            aria-label="Tu nombre"
+            placeholder="Escribe tu nombre..."
             required
             className="mt-1 w-full px-4 py-2 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
           />
@@ -78,6 +80,8 @@ export default function ContactForm({ title = "Contacto" }) {
             type="email"
             id="email"
             name="email"
+            aria-label="Correo electrónico"
+            placeholder="Escribe tu correo..."
             required
             className="mt-1 w-full px-4 py-2 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
           />
@@ -91,6 +95,8 @@ export default function ContactForm({ title = "Contacto" }) {
             id="message"
             name="message"
             rows={4}
+            aria-label="Mensaje"
+            placeholder="Escribe tu mensaje..."
             required
             className="mt-1 w-full px-4 py-2 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
           ></textarea>
