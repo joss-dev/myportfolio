@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import SpeedInsights from '@vercel/speed-insights/astro';
+import Analytics from '@vercel/analytics/astro';
 ---
 
 <!doctype html>
@@ -18,6 +20,8 @@ import Footer from '../components/Footer.astro'
 		<meta name="keywords" content="Jose Maria Candia, programador unne, Licenciatura en sistemas de informacion unne, FACENA , desarrollador full-stack, React, Node.js, TypeScript, MongoDB, PostgreSQL, desarrollo web, programación, Jose Candia, Programación unne, Programacion Corrientes capital" />
 		<meta name="robots" content="index, follow">
 		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+		<SpeedInsights />
+		<Analytics />
 		<title>Jose M. Candia | Desarrollador Full-Stack</title>
 	</head>
 	<body class="min-h-screen bg-gradient-full text-white font-inter">
