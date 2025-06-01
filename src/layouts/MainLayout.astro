@@ -1,35 +1,54 @@
 ---
 import "../styles/global.css";
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import SpeedInsights from '@vercel/speed-insights/astro';
-import Analytics from '@vercel/analytics/astro';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Soy desarrollador Full-Stack con experiencia en React.js, Node.js, TypeScript, MongoDB y PostgreSQL. Apasionado por el trabajo en equipo, la mejora continua y el aprendizaje de nuevas tecnologías. ¡Descubre mis proyectos y habilidades!" />
-		<meta property="og:title" content="Jose M. Candia | Desarrollador Full-Stack" />
-		<meta property="og:description" content="Desarrollador Full-Stack con experiencia en tecnologías como React, Node.js, TypeScript, MongoDB y PostgreSQL. Descubre mis proyectos y habilidades." />
-		<meta property="og:type" content="website" />
-		<meta name="keywords" content="Jose Maria Candia, programador unne, Licenciatura en sistemas de informacion unne, FACENA , desarrollador full-stack, React, Node.js, TypeScript, MongoDB, PostgreSQL, desarrollo web, programación, Jose Candia, Programación unne, Programacion Corrientes capital" />
-		<meta name="robots" content="index, follow">
-		<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-		<SpeedInsights />
-		<Analytics />
-		<title>Jose M. Candia | Desarrollador Full-Stack</title>
-	</head>
-	<body class="min-h-screen bg-gradient-full text-white font-inter">
-		<Header />
-		<main class="mt-24">
-		  <slot /> 
-		</main>
-		<Footer />
-	  </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+	<link rel="icon" type="image/png" href="/favicon-blanco.png" />
+	<link rel="apple-touch-icon" href="/favicon-blanco.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Soy desarrollador Full-Stack con experiencia en React.js, Node.js, TypeScript, MongoDB y PostgreSQL. Apasionado por el trabajo en equipo, la mejora continua y el aprendizaje de nuevas tecnologías. ¡Descubre mis proyectos y habilidades!"
+    />
+    <meta
+      property="og:title"
+      content="Jose M. Candia | Desarrollador Full-Stack"
+    />
+    <meta
+      property="og:description"
+      content="Desarrollador Full-Stack con experiencia en tecnologías como React, Node.js, TypeScript, MongoDB y PostgreSQL. Descubre mis proyectos y habilidades."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      name="keywords"
+      content="Jose Maria Candia, programador unne, Licenciatura en sistemas de informacion unne, FACENA , desarrollador full-stack, React, Node.js, TypeScript, MongoDB, PostgreSQL, desarrollo web, programación, Jose Candia, Programación unne, Programacion Corrientes capital"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:image" content="https://myportfolio-lime-xi-62.vercel.app/preview.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer></script>
+    <SpeedInsights />
+    <Analytics />
+    <title>Jose M. Candia | Desarrollador Full-Stack</title>
+  </head>
+  <body class="min-h-screen bg-gradient-full text-white font-inter">
+    <Header />
+    <main class="mt-24">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
-
