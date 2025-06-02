@@ -28,6 +28,15 @@ const {
     modalImage: '',
     showTextModal: false
   }"
+  x-init="
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        showModal = false;
+        showTextModal = false;
+        document.body.classList.remove('overflow-hidden');
+      }
+    })
+  "
   x-ref="projectCard"
   data-images={JSON.stringify(images)}
   class="flex flex-col justify-between rounded-xl p-4 shadow-md bg-gray-800 text-white space-y-4 h-full relative"
@@ -36,7 +45,7 @@ const {
   <div class="relative overflow-hidden rounded-lg">
     <img
       :src="images[current]"
-      @click="modalImage = images[current]; showModal = true"
+      @click="showModal = true; document.body.classList.add('overflow-hidden')"
       alt={title}
       loading="lazy"
       class="w-full h-48 object-cover rounded-md cursor-pointer transition duration-300 hover:opacity-80"
@@ -45,13 +54,13 @@ const {
     <!-- Botones de navegación -->
     <button
       @click="current = (current - 1 + images.length) % images.length"
-      class="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full text-white hover:bg-opacity-75"
+      class="absolute left-2 top-1/2 -translate-y-1/2 bg-black text-2xl p-2 rounded-full text-white hover:bg-gray-500"
     >
       ‹
     </button>
     <button
       @click="current = (current + 1) % images.length"
-      class="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full text-white hover:bg-opacity-75"
+      class="absolute right-2 top-1/2 -translate-y-1/2 bg-black p-2 text-2xl rounded-full text-white hover:bg-gray-500"
     >
       ›
     </button>
@@ -60,19 +69,45 @@ const {
   <!-- Modal de imagen ampliada -->
   <div
     x-show="showModal"
-    @click.outside="showModal = false"
     class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+    @click.outside="showModal = false; document.body.classList.remove('overflow-hidden')"
   >
-    <img
-      :src="modalImage"
-      class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
-      loading="lazy"
-    />
-    <button
-      @click="showModal = false"
-      class="absolute top-4 right-4 text-red-600 text-6xl  font-bold"
-      >&times;</button
+    <!-- Contenedor del contenido modal que detiene propagación -->
+    <div
+      class="relative flex items-center justify-center w-full h-full px-4"
+      @click.stop
     >
+      <!-- Botón cerrar -->
+      <button
+        @click="showModal = false; document.body.classList.remove('overflow-hidden')"
+        class="absolute top-4 right-4 text-rose-50 text-6xl hover:text-red-500 font-bold z-10"
+      >
+        &times;
+      </button>
+
+      <!-- Botón anterior -->
+      <button
+        @click="current = (current - 1 + images.length) % images.length"
+        class="absolute left-4 bg-withe p-3 rounded-full text-white hover:bg-opacity-75 text-6xl z-10 hover:bg-gray-500"
+      >
+        ‹
+      </button>
+
+      <!-- Imagen -->
+      <img
+        :src="images[current]"
+        class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+        loading="lazy"
+      />
+
+      <!-- Botón siguiente -->
+      <button
+        @click="current = (current + 1) % images.length"
+        class="absolute right-4 bg-withe p-3 rounded-full text-white hover:bg-opacity-75 text-6xl z-10 hover:bg-gray-500"
+      >
+        ›
+      </button>
+    </div>
   </div>
 
   <!-- Modal de texto "Ver más" -->
@@ -88,8 +123,8 @@ const {
       <h2 class="text-xl font-bold mb-4">Detalles del proyecto</h2>
       <p class="text-gray-300 whitespace-pre-line">{details}</p>
       <button
-        @click="showTextModal = false"
-        class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-cyan-400"
+        @click="showTextModal = false; document.body.classList.remove('overflow-hidden')"
+        class="absolute top-4 right-4 font-bold text-rose-50 text-6xl hover:text-red-500"
       >
         &times;
       </button>
@@ -124,15 +159,11 @@ const {
       >
         <i class="fab fa-github"></i>
       </a>
-      <a
-        href={demo}
-        title="Ver demo"
-        class="hover:text-cyan-400"
-      >
+      <a href={demo} title="Ver demo" class="hover:text-cyan-400">
         <i class="fas fa-external-link-alt"></i>
       </a>
       <button
-        @click="showTextModal = true"
+        @click="showTextModal = true; document.body.classList.add('overflow-hidden')"
         class="hover:text-cyan-400 text-base font-semibold"
       >
         Ver más
