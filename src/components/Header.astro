@@ -6,23 +6,50 @@ const {
   background = "bg-gray-900"
 } = Astro.props;
 ---
+<script>
+  // Este script se ejecutará en el cliente
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('menu-toggle')!;
+      const menu = document.getElementById('mobile-menu')!;
+      const links = document.querySelectorAll('#mobile-menu a');
 
-<nav class={`${background} ${textColor} p-4 fixed w-full top-0 left-0 z-10 shadow-sm`} x-data="{ open: false }">
+      let open = false;
+
+      const toggleMenu = () => {
+        open = !open;
+        menu.classList.toggle('hidden', !open);
+        menu.classList.toggle('flex', open);
+      };
+
+      btn?.addEventListener('click', toggleMenu);
+
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          open = false;
+          menu?.classList.add('hidden');
+          menu.classList.remove('flex');
+        });
+      });
+    });
+  }
+</script>
+
+<nav class={`${background} ${textColor} p-4 fixed w-full top-0 left-0 z-10 shadow-sm`}>
   <div class="container mx-auto flex justify-between items-center">
     <a href="/" class="text-2xl font-bold">{brand}</a>
 
     <!-- Botón hamburguesa -->
-    <button class="md:hidden focus:outline-none" @click="open = !open">
+    <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-        <path x-show="!open" d="M4 6h16M4 12h16M4 18h16" />
-        <path x-show="open" d="M6 18L18 6M6 6l12 12" />
+        <path d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
-    
-    <ul
-      class={`md:flex md:space-x-6 text-sm transition-all duration-300 ease-in-out absolute md:static top-full left-0 w-full md:w-auto bg-gray-900 md:bg-transparent flex-col md:flex-row`}
-      :class="{ 'flex': open, 'hidden': !open }"
+
+    <!-- Menú de navegación -->
+    <ul id="mobile-menu"
+      class={`hidden md:flex md:space-x-6 text-sm transition-all duration-300 ease-in-out absolute md:static top-full left-0 w-full md:w-auto ${background} md:bg-transparent flex-col md:flex-row`}
     >
       <li class="border-b md:border-0 px-4 py-2 md:py-0">
         <a href="#about" class={`block transition ${hoverColor}`}>Sobre mí</a>
