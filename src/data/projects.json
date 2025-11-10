@@ -1,39 +1,41 @@
 [
-    {
-      "title": "Plataforma de adopción de mascotas",
-      "description": "Una web app hecha con tecnologías modernas.",
-      "images": [
-        "/img/doggii/doggii1.webp",
-        "/img/doggii/doggii2.webp"
-      ],
-      "repo": "https://github.com/joss-dev/Plataforma-Adopcion-De-Mascotas",
-      "demo": "#projects",
-      "details": "Doggii es la plataforma que revoluciona la adopción de mascotas, conectando refugios y adoptantes de manera simple, ágil y segura. Nuestra misión es facilitar el encuentro entre animales que buscan un hogar y personas dispuestas a brindarles amor y cuidado. Desarrollada con Next.js, Node.js y MongoDB, Doggii ofrece una experiencia intuitiva y eficiente para todos los usuarios. Únete a nosotros en esta noble causa y ayuda a cambiar vidas.",
-      "tech": ["ReactJS", "Node.js", "Express.js", "MongoDB"]
-    },
-    {
-      "title": "Centro de historial Medico",
-      "description": "Toda la información médica en un solo lugar.",
-      "images": [
-        "/img/medlink/medlink1.webp",
-        "/img/medlink/medlink2.webp"
-      ],
-      "repo": "https://github.com/joss-dev/MedLink-Servidor",
-      "demo": "#projects",
-      "details": "Desarrollo de Centro de historial médico Medlink. Utilizando las tecnologias, Typescript , Nextjs ,Nodejs, Express, Swagger, MongoDB.",
-      "tech": ["ReactJS", "Node.js", "Express.js", "MongoDB"]
-    },
-    {
-      "title": "Ecommerce de ropa",
-      "description": "Tienda online de ropa y accesorios.",
-      "images": [
-        "/img/ecommerce/ecommerce2.webp",
-        "/img/ecommerce/ecommerce1.webp"
-      ],
-      "repo": "https://github.com/joss-dev/Ecommerce",
-      "demo": "#projects",
-      "details": "Proyecto del curso de fullstack con Next.js y Node.js.",
-      "tech":["Next.Js", "Node.js", "Express.js", "MongoDB"]
-    }
+  {
+    "title": "Plataforma Web de Onboarding de Créditos para PYMES",
+    "description": "Plataforma Web de Onboarding de Créditos para PYMES",
+    "images": ["/img/financia/principal.webp", "/img/financia/segundo.webp", "/img/financia/tercer.webp"],
+    "repo": "https://github.com/joss-dev/financia",
+    "demo": "#projects",
+    "details": "Permite cargar documentos, notificaciones en tiempo real, panel de administración, el cliente puede solicitar creditos y realizar el onboarding de créditos para PYMES de manera digital y eficiente. Se realizó con ReactJS, Node.js, Express.js, PostgreSQL, TypeORM.",
+    "tech": ["ReactJS", "Node.js", "Express.js", "PostgreSQL", "TypeORM"]
+  },
+  {
+    "title": "Plataforma de adopción de mascotas",
+    "description": "Plataforma de adopción de mascotas",
+    "images": ["/img/doggii/doggii1.webp", "/img/doggii/doggii2.webp"],
+    "repo": "https://github.com/joss-dev/Plataforma-Adopcion-De-Mascotas",
+    "demo": "#projects",
+    "details": "Doggii es la plataforma que revoluciona la adopción de mascotas, conectando refugios y adoptantes de manera simple, ágil y segura. Nuestra misión es facilitar el encuentro entre animales que buscan un hogar y personas dispuestas a brindarles amor y cuidado. Desarrollada con Next.js, Node.js y MongoDB, Doggii ofrece una experiencia intuitiva y eficiente para todos los usuarios. Únete a nosotros en esta noble causa y ayuda a cambiar vidas.",
+    "tech": ["ReactJS", "Node.js", "Express.js", "MongoDB"]
+  },
+  {
+    "title": "Centro de historial Medico",
+    "description": "Toda la información médica en un solo lugar.",
+    "images": ["/img/medlink/medlink1.webp", "/img/medlink/medlink2.webp"],
+    "repo": "https://github.com/joss-dev/MedLink-Servidor",
+    "demo": "#projects",
+    "details": "Desarrollo de Centro de historial médico Medlink. Utilizando las tecnologias, Typescript , Nextjs ,Nodejs, Express, Swagger, MongoDB.",
+    "tech": ["ReactJS", "Node.js", "Express.js", "MongoDB"]
+  },
+  {
+    "title": "Ecommerce de ropa",
+    "description": "Tienda online de ropa y accesorios.",
+    "images": [
+      "/img/ecommerce/ecommerce2.webp",
+      "/img/ecommerce/ecommerce1.webp"
+    ],
+    "repo": "https://github.com/joss-dev/Ecommerce",
+    "demo": "#projects",
+    "details": "Proyecto del curso de fullstack con Next.js y Node.js.",
+    "tech": ["Next.Js", "Node.js", "Express.js", "MongoDB"]
+  }
 ]
-  
