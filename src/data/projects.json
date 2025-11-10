@@ -4,7 +4,7 @@
     "description": "Plataforma Web de Onboarding de Créditos para PYMES",
     "images": ["/img/financia/principal.webp", "/img/financia/segundo.webp", "/img/financia/tercer.webp"],
     "repo": "https://github.com/joss-dev/financia",
-    "demo": "#projects",
+    "demo": "https://pyme-two.vercel.app/",
     "details": "Permite cargar documentos, notificaciones en tiempo real, panel de administración, el cliente puede solicitar creditos y realizar el onboarding de créditos para PYMES de manera digital y eficiente. Se realizó con ReactJS, Node.js, Express.js, PostgreSQL, TypeORM.",
     "tech": ["ReactJS", "Node.js", "Express.js", "PostgreSQL", "TypeORM"]
   },
