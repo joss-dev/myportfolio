@@ -10,7 +10,7 @@ interface Props {
 
 export default function About({
   title = "Conoce más sobre mí",
-  description = "Soy desarrollador Full-Stack con experiencia en React.js, Node.js, TypeScript, MongoDB, PostgreSQL, orientado al trabajo en equipo y la mejora continua. Me destaco por mi comunicación clara, adaptabilidad y enfoque en la resolución de problemas. Aspiro a crecer como desarrollador de software, aportando en proyectos con impacto real y aprendiendo de entornos colaborativos.",
+  description = "Software Developer enfocado en backend, integración de APIs e inteligencia artificial. También desarrollo frontend con React/Next.js y trabajo con PostgreSQL y MongoDB para construir soluciones escalables orientadas a negocio.",
 }: Props) {
   return (
     <section
