@@ -10,7 +10,7 @@ interface Props {
 
 export default function About({
   title = "Conoce más sobre mí",
-  description = "Software Developer (Jose Maria Candia / Candia) enfocado en backend, integración de APIs e inteligencia artificial. También desarrollo frontend con React/Next.js y trabajo con PostgreSQL y MongoDB para construir soluciones escalables orientadas a negocio.",
+  description = "Software Developer enfocado en backend, integración de APIs e inteligencia artificial. También desarrollo frontend con React/Next.js y trabajo con PostgreSQL y MongoDB para construir soluciones escalables orientadas a negocio.",
 }: Props) {
   return (
     <section
@@ -32,9 +32,9 @@ export default function About({
             sequence={[
               "Hola, soy Jose Maria Candia",
               1500,
-              "Jose Candia | Desarrollador Fullstack",
+              "Desarrollador Fullstack",
               1500,
-              "Apasionado por la tecnología e IA.",
+              "Apasionado por la tecnología e IA",
               1500,
             ]}
             wrapper="span"
