@@ -1,4 +1,4 @@
-// src/components/About.tsx
+// src/components/AboutMe.tsx
 import { Briefcase, Download } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
@@ -10,12 +10,12 @@ interface Props {
 
 export default function About({
   title = "Conoce más sobre mí",
-  description = "Software Developer enfocado en backend, integración de APIs e inteligencia artificial. También desarrollo frontend con React/Next.js y trabajo con PostgreSQL y MongoDB para construir soluciones escalables orientadas a negocio.",
+  description = "Software Developer (Jose Maria Candia / Candia) enfocado en backend, integración de APIs e inteligencia artificial. También desarrollo frontend con React/Next.js y trabajo con PostgreSQL y MongoDB para construir soluciones escalables orientadas a negocio.",
 }: Props) {
   return (
     <section
       id="about"
-      className="relative py-24 px-4 max-w-4xl mx-auto text-center"
+      className="relative py-24 px-4 max-w-4xl mx-auto text-center scroll-mt-24"
     >
       {/* Fondo animado sutil */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] animate-pulse opacity-20 blur-2xl rounded-3xl" />
@@ -30,11 +30,11 @@ export default function About({
         <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-400 to-indigo-500 mb-2">
           <TypeAnimation
             sequence={[
-              "Mi nombre es Jose M. Candia",
+              "Hola, soy Jose Maria Candia",
               1500,
-              "Desarrollador Fullstack.",
+              "Jose Candia | Desarrollador Fullstack",
               1500,
-              "Apasionado por la tecnología.",
+              "Apasionado por la tecnología e IA.",
               1500,
             ]}
             wrapper="span"
@@ -73,7 +73,7 @@ export default function About({
       >
         <a
           href="/micv.pdf"
-          download="Mi-CV-Candia.pdf"
+          download="Mi-CV-Jose-Maria-Candia.pdf"
           className="group relative inline-flex items-center gap-2 border border-cyan-400 text-cyan-400 hover:text-gray-900 transition px-6 py-2 rounded-full text-sm font-medium backdrop-blur-sm bg-white/5 overflow-hidden"
         >
           <span className="absolute inset-0 bg-cyan-400 opacity-10 blur-md transition duration-300 group-hover:opacity-30" />

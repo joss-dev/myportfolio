@@ -1,10 +1,10 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import AboutMe from "../components/AboutMe.tsx";
-import ContactForm from '../components/ContactForm.tsx';
+import ContactForm from "../components/ContactForm.tsx";
 import Skills from "../components/Skills.astro";
 import Education from "../components/Education.astro";
-import Experiencie from "../components/Experiencie.astro";
+import Experience from "../components/Experience.astro";
 import Project from "../components/Project.astro";
 ---
 
@@ -12,7 +12,7 @@ import Project from "../components/Project.astro";
   <AboutMe client:load />
   <Project />
   <Skills />
-  <Experiencie />
+  <Experience />
   <Education />
-  <ContactForm title="Contacto" client:load />
+  <ContactForm title="Contacto" client:visible />
 </MainLayout>

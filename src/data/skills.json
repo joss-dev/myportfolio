@@ -1,0 +1,17 @@
+[
+  { "name": "TypeScript", "logo": "/img/skills/typescript.svg" },
+  { "name": "JavaScript", "logo": "/img/skills/javascript.svg" },
+  { "name": "Node.js", "logo": "/img/skills/nodedotjs.svg" },
+  { "name": "NestJS", "logo": "/img/skills/nestjs.svg" },
+  { "name": "React", "logo": "/img/skills/react.svg" },
+  { "name": "Next.js", "logo": "/img/skills/nextdotjs.svg" },
+  { "name": "Express.js", "logo": "/img/skills/express.svg" },
+  { "name": "TypeORM", "logo": "/img/skills/typeorm.svg" },
+  { "name": "PostgreSQL", "logo": "/img/skills/postgresql.svg" },
+  { "name": "MongoDB", "logo": "/img/skills/mongodb.svg" },
+  { "name": "Docker", "logo": "/img/skills/docker.svg" },
+  { "name": "Git", "logo": "/img/skills/git.svg" },
+  { "name": "Cursor", "logo": "/img/skills/cursor.svg" },
+  { "name": "Claude", "logo": "/img/skills/claude.svg" },
+  { "name": "MCP", "logo": "/img/skills/mcp.svg" }
+]

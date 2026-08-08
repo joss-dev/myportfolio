@@ -18,117 +18,45 @@ const {
   details,
   tech = [],
 } = Astro.props;
+
+const firstImage = images.length > 0 ? images[0] : "";
 ---
 
 <div
-  x-data="{
-    images: JSON.parse($el.getAttribute('data-images')),
-    current: 0,
-    showModal: false,
-    modalImage: '',
-    showTextModal: false
-  }"
-  x-init="
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        showModal = false;
-        showTextModal = false;
-        document.body.classList.remove('overflow-hidden');
-      }
-    })
-  "
-  x-ref="projectCard"
   data-images={JSON.stringify(images)}
-  class="flex flex-col justify-between rounded-xl p-4 shadow-md bg-gray-800 text-white space-y-4 h-full relative"
+  data-details={details}
+  class="project-card flex flex-col justify-between rounded-xl p-4 shadow-md bg-gray-800 text-white space-y-4 h-full relative"
 >
   <!-- Carrusel de imágenes -->
   <div class="relative overflow-hidden rounded-lg">
     <img
-      :src="images[current]"
-      @click="showModal = true; document.body.classList.add('overflow-hidden')"
-      alt={title}
+      src={firstImage}
+      alt={`Vista previa de ${title}`}
       loading="lazy"
-      class="w-full h-48 object-cover rounded-md cursor-pointer transition duration-300 hover:opacity-80"
+      decoding="async"
+      width="400"
+      height="192"
+      class="card-main-img w-full h-48 object-cover rounded-md cursor-pointer transition duration-300 hover:opacity-80"
     />
 
-    <!-- Botones de navegación -->
-    <button
-      @click="current = (current - 1 + images.length) % images.length"
-      class="absolute left-2 top-1/2 -translate-y-1/2 bg-black text-2xl p-2 rounded-full text-white hover:bg-gray-500"
-    >
-      ‹
-    </button>
-    <button
-      @click="current = (current + 1) % images.length"
-      class="absolute right-2 top-1/2 -translate-y-1/2 bg-black p-2 text-2xl rounded-full text-white hover:bg-gray-500"
-    >
-      ›
-    </button>
-  </div>
-
-  <!-- Modal de imagen ampliada -->
-  <div
-    x-show="showModal"
-    class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-    @click.outside="showModal = false; document.body.classList.remove('overflow-hidden')"
-  >
-    <!-- Contenedor del contenido modal que detiene propagación -->
-    <div
-      class="relative flex items-center justify-center w-full h-full px-4"
-      @click.stop
-    >
-      <!-- Botón cerrar -->
-      <button
-        @click="showModal = false; document.body.classList.remove('overflow-hidden')"
-        class="absolute top-4 right-4 text-rose-50 text-6xl hover:text-red-500 font-bold z-10"
-      >
-        &times;
-      </button>
-
-      <!-- Botón anterior -->
-      <button
-        @click="current = (current - 1 + images.length) % images.length"
-        class="absolute left-4 bg-withe p-3 rounded-full text-white hover:bg-opacity-75 text-6xl z-10 hover:bg-gray-500"
-      >
-        ‹
-      </button>
-
-      <!-- Imagen -->
-      <img
-        :src="images[current]"
-        class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
-        loading="lazy"
-      />
-
-      <!-- Botón siguiente -->
-      <button
-        @click="current = (current + 1) % images.length"
-        class="absolute right-4 bg-withe p-3 rounded-full text-white hover:bg-opacity-75 text-6xl z-10 hover:bg-gray-500"
-      >
-        ›
-      </button>
-    </div>
-  </div>
-
-  <!-- Modal de texto "Ver más" -->
-  <div
-    x-show="showTextModal"
-    x-transition
-    @click.outside="showTextModal = false"
-    class="fixed inset-0 bg-transparent flex items-center justify-center z-50 px-4"
-  >
-    <div
-      class="bg-gray-900 text-gray-100 rounded-lg shadow-xl max-w-2xl w-full p-6 relative"
-    >
-      <h2 class="text-xl font-bold mb-4">Detalles del proyecto</h2>
-      <p class="text-gray-300 whitespace-pre-line">{details}</p>
-      <button
-        @click="showTextModal = false; document.body.classList.remove('overflow-hidden')"
-        class="absolute top-4 right-4 font-bold text-rose-50 text-6xl hover:text-red-500"
-      >
-        &times;
-      </button>
-    </div>
+    {images.length > 1 && (
+      <>
+        <button
+          type="button"
+          aria-label="Imagen anterior"
+          class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 text-2xl p-2 rounded-full text-white hover:bg-gray-700 transition"
+        >
+          ‹
+        </button>
+        <button
+          type="button"
+          aria-label="Imagen siguiente"
+          class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 p-2 text-2xl rounded-full text-white hover:bg-gray-700 transition"
+        >
+          ›
+        </button>
+      </>
+    )}
   </div>
 
   <!-- Título y descripción -->
@@ -150,24 +78,194 @@ const {
 
   <!-- Botones de acción -->
   <div class="mt-4">
-    <div class="flex justify-around text-xl">
-      <a
-        href={repo}
-        target="_blank"
-        title="Código fuente"
-        class="hover:text-cyan-400"
-      >
-        <i class="fab fa-github"></i>
-      </a>
-      <a href={demo} title="Ver demo" target="_blank" class="hover:text-cyan-400">
-        <i class="fas fa-external-link-alt"></i>
-      </a>
+    <div class="flex justify-around items-center text-xl">
+      {repo && (
+        <a
+          href={repo}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Código fuente"
+          aria-label="Ver código fuente en GitHub"
+          class="hover:text-cyan-400 transition"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+      )}
+      {demo && (
+        <a
+          href={demo}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Ver demo"
+          aria-label="Ver demo en vivo"
+          class="hover:text-cyan-400 transition"
+        >
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      )}
+      {details && (
+        <button
+          type="button"
+          class="ver-mas-btn hover:text-cyan-400 text-base font-semibold transition"
+        >
+          Ver más
+        </button>
+      )}
+    </div>
+  </div>
+
+  <!-- Modal de imagen ampliada -->
+  <div class="image-modal hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+    <div class="relative flex items-center justify-center w-full h-full max-w-5xl">
       <button
-        @click="showTextModal = true; document.body.classList.add('overflow-hidden')"
-        class="hover:text-cyan-400 text-base font-semibold"
+        type="button"
+        aria-label="Cerrar vista ampliada"
+        class="close-img-modal absolute top-4 right-4 text-white text-4xl hover:text-red-500 font-bold z-20"
       >
-        Ver más
+        &times;
+      </button>
+
+      {images.length > 1 && (
+        <button
+          type="button"
+          aria-label="Imagen anterior"
+          class="modal-prev-btn absolute left-4 bg-black/60 p-3 rounded-full text-white text-3xl z-20 hover:bg-gray-700"
+        >
+          ‹
+        </button>
+      )}
+
+      <img
+        src={firstImage}
+        alt={`Vista ampliada de ${title}`}
+        class="modal-img max-w-[90%] max-h-[85vh] rounded-lg shadow-2xl object-contain"
+      />
+
+      {images.length > 1 && (
+        <button
+          type="button"
+          aria-label="Imagen siguiente"
+          class="modal-next-btn absolute right-4 bg-black/60 p-3 rounded-full text-white text-3xl z-20 hover:bg-gray-700"
+        >
+          ›
+        </button>
+      )}
+    </div>
+  </div>
+
+  <!-- Modal de texto "Ver más" -->
+  <div class="text-modal hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+    <div class="bg-gray-900 text-gray-100 rounded-xl shadow-2xl max-w-2xl w-full p-6 relative border border-gray-700">
+      <h2 class="text-xl font-bold mb-4 text-cyan-400">Detalles del proyecto</h2>
+      <p class="text-gray-300 whitespace-pre-line leading-relaxed">{details}</p>
+      <button
+        type="button"
+        aria-label="Cerrar detalles"
+        class="close-text-modal absolute top-4 right-4 font-bold text-gray-400 hover:text-white text-3xl"
+      >
+        &times;
       </button>
     </div>
   </div>
 </div>
+
+<script>
+  const initProjectCards = () => {
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach((card) => {
+      const imagesAttr = card.getAttribute('data-images');
+      const images: string[] = imagesAttr ? JSON.parse(imagesAttr) : [];
+      let currentIndex = 0;
+
+      const mainImg = card.querySelector('.card-main-img') as HTMLImageElement;
+      const prevBtn = card.querySelector('.prev-btn');
+      const nextBtn = card.querySelector('.next-btn');
+
+      const imgModal = card.querySelector('.image-modal') as HTMLElement;
+      const modalImg = card.querySelector('.modal-img') as HTMLImageElement;
+      const closeImgModal = card.querySelector('.close-img-modal');
+      const modalPrevBtn = card.querySelector('.modal-prev-btn');
+      const modalNextBtn = card.querySelector('.modal-next-btn');
+
+      const textModal = card.querySelector('.text-modal') as HTMLElement;
+      const verMasBtn = card.querySelector('.ver-mas-btn');
+      const closeTextModal = card.querySelector('.close-text-modal');
+
+      const updateImages = () => {
+        if (images.length === 0) return;
+        if (mainImg) mainImg.src = images[currentIndex];
+        if (modalImg) modalImg.src = images[currentIndex];
+      };
+
+      prevBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImages();
+      });
+
+      nextBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImages();
+      });
+
+      mainImg?.addEventListener('click', () => {
+        if (imgModal) {
+          imgModal.classList.remove('hidden');
+          document.body.classList.add('overflow-hidden');
+        }
+      });
+
+      closeImgModal?.addEventListener('click', () => {
+        if (imgModal) {
+          imgModal.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+
+      modalPrevBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImages();
+      });
+
+      modalNextBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImages();
+      });
+
+      imgModal?.addEventListener('click', (e) => {
+        if (e.target === imgModal) {
+          imgModal.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+
+      verMasBtn?.addEventListener('click', () => {
+        if (textModal) {
+          textModal.classList.remove('hidden');
+          document.body.classList.add('overflow-hidden');
+        }
+      });
+
+      closeTextModal?.addEventListener('click', () => {
+        if (textModal) {
+          textModal.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+
+      textModal?.addEventListener('click', (e) => {
+        if (e.target === textModal) {
+          textModal.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden');
+        }
+      });
+    });
+  };
+
+  initProjectCards();
+  document.addEventListener('astro:page-load', initProjectCards);
+</script>

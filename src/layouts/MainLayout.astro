@@ -1,48 +1,101 @@
 ---
 import "../styles/global.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 import Analytics from "@vercel/analytics/astro";
+
+const siteUrl = "https://myportfolio-lime-xi-62.vercel.app";
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+
+const pageTitle = "Jose Maria Candia (Jose Candia) | Software Developer & Full Stack Engineer";
+const pageDescription = "Portafolio profesional de Jose Maria Candia (Jose Candia / Candia). Software Developer especializado en NestJS, React, Next.js, APIs e Inteligencia Artificial.";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jose Maria Candia",
+  "alternateName": ["Jose Candia", "Candia", "Jose M. Candia", "Joss.dev"],
+  "jobTitle": "Software Developer / Full Stack Engineer",
+  "description": pageDescription,
+  "url": siteUrl,
+  "sameAs": [
+    "https://github.com/joss-dev",
+    "https://linkedin.com"
+  ],
+  "knowsAbout": [
+    "Full Stack Development",
+    "NestJS",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "PostgreSQL",
+    "MongoDB",
+    "Artificial Intelligence Agents",
+    "MCP"
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Jose Maria Candia Portafolio",
+  "alternateName": "Jose Candia Dev",
+  "url": siteUrl
+};
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-	<link rel="icon" type="image/png" href="/favicon-blanco.png" />
-	<link rel="apple-touch-icon" href="/favicon-blanco.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon-blanco.png" />
+    <link rel="apple-touch-icon" href="/favicon-blanco.png" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Software Developer especializado en NestJS, React, integracion de APIs e inteligencia artificial. Desarrollo soluciones escalables orientadas a negocio."
-    />
-    <meta
-      property="og:title"
-      content="Jose M. Candia | Desarrollador Full-Stack"
-    />
-    <meta
-      property="og:description"
-      content="Software Developer con foco en backend, APIs e IA. NestJS, React, Next.js, PostgreSQL y MongoDB."
-    />
-    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- Metaetiquetas Principales -->
+    <title>{pageTitle}</title>
+    <meta name="title" content={pageTitle} />
+    <meta name="description" content={pageDescription} />
     <meta
       name="keywords"
-      content="Jose Maria Candia, programador unne, Licenciatura en sistemas de informacion unne, FACENA , desarrollador full-stack, React, Node.js, TypeScript, MongoDB, PostgreSQL, desarrollo web, programación, Jose Candia, Programación unne, Programacion Corrientes capital"
+      content="jose maria candia, candia, jose candia, jose m. candia, joss.dev, desarrollador full stack, software engineer, nestjs, react, typescript, corrientes argentina, unne licenciatura en sistemas"
     />
     <meta name="robots" content="index, follow" />
-    <meta property="og:image" content="https://myportfolio-lime-xi-62.vercel.app/preview.webp" />
+    <meta name="author" content="Jose Maria Candia" />
+
+    <!-- OpenGraph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={`${siteUrl}/preview.webp`} />
+    <meta property="og:image:alt" content="Portafolio de Jose Maria Candia" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Jose Maria Candia Portafolio" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-      defer></script>
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={`${siteUrl}/preview.webp`} />
+
+    <!-- Datos Estructurados JSON-LD (Schema.org) -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
     <SpeedInsights />
     <Analytics />
-    <title>Jose M. Candia | Desarrollador Full-Stack</title>
   </head>
   <body class="min-h-screen bg-gradient-full text-white font-inter">
     <Header />
@@ -52,4 +105,3 @@ import Analytics from "@vercel/analytics/astro";
     <Footer />
   </body>
 </html>
-

@@ -4,12 +4,14 @@ import { visualizer } from "rollup-plugin-visualizer";
 import tailwindcss from '@tailwindcss/vite';
 import dotenv from 'dotenv';
 import react from '@astrojs/react';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
+import sitemap from '@astrojs/sitemap';
 
 dotenv.config();
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://myportfolio-lime-xi-62.vercel.app',
   vite: {
     plugins: [
       tailwindcss(),
@@ -23,5 +25,8 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: false } 
   }),
-  integrations: [react()]
+  integrations: [
+    react(),
+    sitemap()
+  ]
 });
